@@ -54,6 +54,9 @@ public class MainActivity extends AppCompatActivity {
                 ApiClientGSON.getClient().create(ApiInterface.class);
 
         Call<MovieResponse> call = apiService.getTopRatedMovies(API_KEY);
+
+
+
         call.enqueue(new Callback<MovieResponse>() {
             @Override
             public void onResponse(Call<MovieResponse> call, Response<MovieResponse> response) {
@@ -69,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.e(TAG, t.toString());
             }
         });
+
 
 
     }
