@@ -1,6 +1,7 @@
 package com.iamrajendra.retrofitpractice.rest;
 
 import com.iamrajendra.retrofitpractice.model.MovieResponse;
+import com.iamrajendra.retrofitpractice.model.BreakFastMenu;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -16,4 +17,7 @@ public interface ApiInterface {
 
     @GET("movie/{id}")
     Call<MovieResponse> getMovieDetails(@Path("id") int id, @Query("api_key") String apiKey);
+
+    @GET("/xml/simple.xml")
+    Call<BreakFastMenu> getXml();
 }

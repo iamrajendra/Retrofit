@@ -1,20 +1,13 @@
 #Rectrofit
 
-Retrofit is a good way to calling rest api. It is safe and simple way to call REST Services.
-It have three main things.
+I am feeling luck,
 
- 1. Model Class
- 2. Retrofit Instances
- 3. Retrofit End Point.
+This example include two type of parsing 
+1. xml response
+2. json response
 
- ##Model Class
+I am feeling happy that I learn, this much in very short period of time
 
- It define the structure
+this screen for xml parsing 
 
- ## Retrofit Instance
-
- An Instance will use to call REST Api
-
- ## Retrofit End Point
-
- It define the end point of like parameters and URL end points
+<img src="device-2016-08-20-225749.png"></img>

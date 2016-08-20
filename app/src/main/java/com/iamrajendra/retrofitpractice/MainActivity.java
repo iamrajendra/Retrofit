@@ -9,7 +9,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.iamrajendra.retrofitpractice.rest.ApiClient;
+import com.iamrajendra.retrofitpractice.model.BreakFastMenu;
+import com.iamrajendra.retrofitpractice.rest.ApiClientGSON;
+import com.iamrajendra.retrofitpractice.rest.ApiClientXml;
 import com.iamrajendra.retrofitpractice.rest.ApiInterface;
 import com.iamrajendra.retrofitpractice.model.Movie;
 import com.iamrajendra.retrofitpractice.model.MovieResponse;
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     // TODO - insert your themoviedb.org API KEY here
     private final static String API_KEY = "3f26c519bb43a42f687cdb096eb239c2";
     private RecyclerView mRecyclerView_list;
+    private String Tag = "MainActivity";
 
 
     @Override
@@ -37,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void init() {
-    mRecyclerView_list = (RecyclerView) findViewById(R.id.list);
+        mRecyclerView_list = (RecyclerView) findViewById(R.id.list);
     }
 
     private void retrofit_init() {
@@ -48,20 +51,20 @@ public class MainActivity extends AppCompatActivity {
         }
 
         ApiInterface apiService =
-                ApiClient.getClient().create(ApiInterface.class);
+                ApiClientGSON.getClient().create(ApiInterface.class);
 
         Call<MovieResponse> call = apiService.getTopRatedMovies(API_KEY);
         call.enqueue(new Callback<MovieResponse>() {
             @Override
-            public void onResponse(Call<MovieResponse>call, Response<MovieResponse> response) {
+            public void onResponse(Call<MovieResponse> call, Response<MovieResponse> response) {
                 List<Movie> movies = response.body().getResults();
                 Log.d(TAG, "Number of movies received: " + movies.size());
-                mRecyclerView_list.setAdapter(new MoviesAdapter(movies,R.layout.list_item_movie,getApplicationContext()));
+                mRecyclerView_list.setAdapter(new MoviesAdapter(movies, R.layout.list_item_movie, getApplicationContext()));
                 mRecyclerView_list.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
             }
 
             @Override
-            public void onFailure(Call<MovieResponse>call, Throwable t) {
+            public void onFailure(Call<MovieResponse> call, Throwable t) {
                 // Log error here since request failed
                 Log.e(TAG, t.toString());
             }

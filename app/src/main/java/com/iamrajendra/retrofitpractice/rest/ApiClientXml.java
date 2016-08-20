@@ -2,23 +2,23 @@ package com.iamrajendra.retrofitpractice.rest;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.simplexml.SimpleXmlConverterFactory;
 
 /**
- * Created by rajendraverma on 15-08-2016.
+ * Created by rajendraverma on 20-08-2016.
  */
-public class ApiClient {
-
-    public static final String BASE_URL = "http://api.themoviedb.org/3/";
-    private static Retrofit retrofit = null;
-
+public class ApiClientXml {
+    private static Retrofit retrofit;
+    private  static  String BASE_URL ="http://www.w3schools.com";
 
     public static Retrofit getClient() {
         if (retrofit==null) {
             retrofit = new Retrofit.Builder()
                     .baseUrl(BASE_URL)
-                    .addConverterFactory(GsonConverterFactory.create())
+                    .addConverterFactory(SimpleXmlConverterFactory.create())
                     .build();
         }
         return retrofit;
     }
+
 }
