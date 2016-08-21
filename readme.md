@@ -26,10 +26,11 @@ Retrofit include three things.
    1.  body parameters 
    2 . header parameters 
    3. url mapers 
-
-This sample includes XML and JSON retrofit response.
-
-
+   
+ ## Retrofit Model.
+   
+   Retrofit Model carry the information. It works as templates which is use to carry and represent the information. It works just like DNA of living cell.
+   
 ## this screen for xml parsing 
 
 <img src="device-2016-08-20-225749.png"></img>
@@ -37,3 +38,9 @@ This sample includes XML and JSON retrofit response.
 ## this screen is for json paring
  
 <img src="device-2016-08-20-225808.png"></img>
+
+Please go through the code than you will understand how retrofit works. If you have any problem or doubt or any enhancement request please open the issue.
+  
+  Thank you :) 
+  
+  Hope you enjoy the code.
